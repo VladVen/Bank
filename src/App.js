@@ -1,25 +1,29 @@
-import logo from './logo.svg';
 import './App.css';
+import Topic from './components/topic';
+import Links from './components/sideBar';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Mono from './components/mono/mono';
+import Privat from './components/privat/privat';
+import Oshad from './components/oshad/oshad';
+import Pumb from './components/pumb/pumb';
 
 function App() {
-  return (
+  return (<BrowserRouter>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
+    <Topic />
+    <Links />
+    <Routes>
+    <Route path='/privat' element={<Privat />} />
+    <Route path='/mono' element={<Mono />} />
+    <Route path='/oshad' element={<Oshad />} />
+    <Route path='/pumb' element={<Pumb />} />
+    </Routes>
     </div>
+  </BrowserRouter>
   );
 }
+
+
 
 export default App;
